@@ -1,0 +1,11 @@
+FROM httpd
+CMD apachectl -D FOREGROUND
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install wget unzip -y
+RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page270/veggie.zip
+RUN mv veggie.zip htdocs/
+RUN unzip htdocs/veggie.zip
+RUN cp -r veggie-master/* htdocs/
+EXPOSE 82
+
